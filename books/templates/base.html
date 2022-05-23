@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <style>
+        @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+    </style> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+</head>
+
+<body>
+<header>
+    <p class="title">LANI</p>
+    <nav>
+        <a href="{% url 'index' %}">Home</a>
+        {% if user.is_authenticated %}
+        <a href="">profile</a>
+        <a href="{% url 'Logout' %}">logout</a>
+        {%else%}
+        <a href="{% url 'Usersignup' %}">sign up</a>
+        <a href="{% url 'User_login' %}">sing in</a>
+        {%endif%}
+        <a href="#">books</a>
+
+        <a href="{% url 'bookcrossing' %}">bookcrossing</a>
+    </nav>
+    <input type="search" placeholder="Search...">
+</header>
+{% block body %}
+
+
+{% endblock %}
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-wrapper">
+        <div class="inner">
+            <div class="footer-flex">
+                <div class="links">
+                    <div class="footer-container">
+                        <a href="">search</a>
+                    </div>
+                </div>
+                <div class="links">
+                    <div class="footer-container">
+                        <a href="">FAQ</a>
+                    </div>
+                </div>
+                <div class="links">
+                    <div class="footer-container">
+                        <a href="">about us</a>
+                    </div>
+                </div>
+                <div class="links">
+                    <div class="footer-container">
+                        <a href=""><img src="{% static 'image/icons8-facebook-64.png' %}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="ll">
+                LANI
+                online bookstore
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

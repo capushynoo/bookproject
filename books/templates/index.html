@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Bookstore {% endblock %}
+
+{% block body %}
+<div class="banner">
+    <img class="bgImg" src="{% static 'image/5325651389957806421%201.png' %}" alt="">
+    <div class="bgColor"></div>
+    <div class="banner-wrapper">
+        <div class="inner">
+            <div class="banner-text">
+
+                <h1>The BookStore</h1>
+                <p>FIND YOUR PLACE AT LANI’S ONLINE BOOKSTORE
+                    It's really cool here: a large selection of different books. This is a very cozy place where
+                    you will find everything you need.
+                </p>
+                {% if user.is_authenticated %}
+                <a href="#" class="primary">Welcome, {{user.username}}!</a>
+                {%else%}
+                <a href="{% url 'Usersignup' %}" class="primary"> SignUp here </a>
+                {%endif%}
+            </div>
+            <div class="banner-at">
+                <div class="rec-book">
+                    <img src="{% static 'image/pngfind 1.png ' %}" alt="">
+                    <h3>Bestsellers</h3>
+                    <p>Find the latest and greatest bestselling books, authors and more at Australia's largest
+                        bookstore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section>
+    <h3>Books bestsellers</h3>
+    <div class="books">
+        <div class="rec1">
+            <img src="{% static 'image/IMG_5314.png' %}" alt="">
+            <pre>
+the GREAT RESET
+by GLENN BECK
+$9.09
+            </pre>
+        </div>
+        <div class="rec2">
+            <img src="{% static 'image/IMG_5313.png' %}" alt="">
+            <pre>
+The 48 laws of POWER
+by ROBERT GREENE
+$18.62
+            </pre>
+        </div>
+        <div class="rec3">
+            <img src="{% static 'image/IMG_5312.png' %}" alt="">
+            <pre>
+LAPTOP from HELL
+by MIRANDA DEVINE
+$13.55
+            </pre>
+        </div>
+    </div>
+</section>
+{% endblock %}
